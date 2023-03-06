@@ -67,9 +67,9 @@ function closeProductDetailAside() {
 
 const productList = [];
 productList.push({
-    name: 'Bike',
+    name: 'Procesador',
     price: 120,
-    image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    image: 'https://elcomercio.pe/resizer/d8sLKQWeroFzEZvfByWSgrpJ_4k=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/4EPUMM7TRVB5TB6HT2H7COMCOM.jpg',
 });
 productList.push({
     name: 'Monitor',
@@ -133,8 +133,13 @@ function renderProducts(arr) {
         productCard.classList.add('product-card');
 
         const productImg = document.createElement('img');
+        productImg.classList.add('img-product-card');
         productImg.setAttribute('src', product.image);
         productImg.addEventListener('click', openProductDetailAside);
+        productImg.addEventListener('click', indiceFoto);
+
+
+
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -166,3 +171,11 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+function indiceFoto() {
+    let imgProductDetail = document.querySelector(".img-product-card")
+    let addressImgList = imgProductDetail.getAttribute('src');
+    let imgproductDetail = document.querySelector('.img-product');
+
+    imgproductDetail.setAttribute('src', addressImgList);
+}
